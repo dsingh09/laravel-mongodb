@@ -132,6 +132,9 @@ class Connection extends BaseConnection
         if (! isset($options['password']) && ! empty($config['password'])) {
             $options['password'] = $config['password'];
         }
+        if (! isset($options['timeout']) && ! empty($config['timeout'])) {
+            $options['socketTimeoutMS'] = $config['timeout'];
+        }
 
         return new Client($dsn, $options, $driverOptions);
     }
